@@ -1,7 +1,7 @@
 export const BRAND = "فيوفاي";
 export const WHATSAPP = "966545692545";
 export const EMAIL = "hello@mowthooq.example";
-export const SITE_URL = "https://www.mohammadsaleh.online";
+export const SITE_URL = "https://api.whatsapp.com/send/?phone=966545692545";
 
 // الروابط بالشكل "/#..." حتى تعمل من الصفحة الرئيسية ومن صفحات الخدمات
 export const NAV = [
