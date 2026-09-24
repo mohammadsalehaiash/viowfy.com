@@ -17,8 +17,9 @@ export default function Page() {
         <Services />
         <Process />
         <WhyUs />
+         <CTA />
          <FAQ />
-        <CTA />
+
         {/* <Contact /> */}
       </main>
       <Footer />
