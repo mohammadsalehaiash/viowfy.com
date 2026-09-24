@@ -30,10 +30,10 @@ export default function Hero() {
             وواتساب بيزنس — بخطوات واضحة ومتابعة لحق الاعتماد.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <a href="https://www.mohammadsaleh.online/#contact" className="rounded-xl bg-brand px-6 py-3.5 font-semibold text-white shadow-lg shadow-brand/25 transition hover:bg-navy">
+            <a href="https://api.whatsapp.com/send/?phone=966545692545" className="rounded-xl bg-brand px-6 py-3.5 font-semibold text-white shadow-lg shadow-brand/25 transition hover:bg-navy">
               ابدأ إجراءات التوثيق
             </a>
-            <a href="https://www.mohammadsaleh.online/#process" className="rounded-xl bg-white px-6 py-3.5 font-semibold text-navy ring-1 ring-line transition hover:ring-brand">
+            <a href="https://api.whatsapp.com/send/?phone=966545692545" className="rounded-xl bg-white px-6 py-3.5 font-semibold text-navy ring-1 ring-line transition hover:ring-brand">
               تعرّف على آلية العمل
             </a>
           </div>
