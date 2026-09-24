@@ -2,7 +2,7 @@ import { BRAND, WHY } from "@/app/_components/content";
 
 export default function WhyUs() {
   return (
-    <section id="why-us" className="bg-mist py-20">
+    <section dir="rtl" id="why-us" className="bg-mist py-20">
       <div className="mx-auto grid max-w-6xl gap-12 px-5 lg:grid-cols-[.8fr_1.2fr]">
         <div>
           <h2 className="text-3xl font-extrabold text-navy md:text-4xl">لماذا {BRAND}</h2>
