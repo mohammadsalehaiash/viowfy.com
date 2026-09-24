@@ -14,7 +14,7 @@ const clients = [
 ];
 
 export default function ClientsSection() {
-  const trackRef = useRef(null);
+  const trackRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
 
@@ -46,7 +46,7 @@ export default function ClientsSection() {
 
   // بما إن المحتوى LTR بالترتيب، السهم اللي يودّي "يمين" (للأمام
   // بترتيب الشعارات) يسحب السكرول بمقدار موجب، والعكس بالعكس.
-  const scrollByAmount = (amount) => {
+  const scrollByAmount = (amount: number) => {
     trackRef.current?.scrollBy({ left: amount, behavior: "smooth" });
   };
 
@@ -92,7 +92,6 @@ export default function ClientsSection() {
             ))}
           </div>
 
-          {/* السهم الأيسر (بصريًا) = يقدّم بترتيب الشعارات */}
           <button
             type="button"
             onClick={() => scrollByAmount(300)}
