@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 
 const clients = [
   { src: "/azzad.png", alt: "عزّاد" },
@@ -11,10 +14,41 @@ const clients = [
 ];
 
 export default function ClientsSection() {
-  // النسخ مرتين بالضبط (مو 3) عشان نقدر نحرك -50% تمام
-  // وبكذا آخر شعار بالنسخة الأولى يكمله أول شعار بالنسخة الثانية بنفس المسافة (gap)
-  // اللي بين باقي الشعارات، فما تحس بفجوة ولا بالتصاق.
-  const track = [...clients, ...clients];
+  const trackRef = useRef(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(false);
+
+  // نتأكد هل المحتوى أصلاً أعرض من الحاوية (يعني فيه داعي للأسهم) ولا لا،
+  // ونحدّث حالة تفعيل كل سهم حسب موضع السكرول الحالي.
+  const updateArrows = () => {
+    const el = trackRef.current;
+    if (!el) return;
+    const hasOverflow = el.scrollWidth > el.clientWidth + 1;
+    setCanScrollLeft(hasOverflow && el.scrollLeft > 1);
+    setCanScrollRight(
+      hasOverflow && el.scrollLeft < el.scrollWidth - el.clientWidth - 1
+    );
+  };
+
+  useEffect(() => {
+    updateArrows();
+    const el = trackRef.current;
+    if (!el) return;
+    const onScroll = () => updateArrows();
+    const onResize = () => updateArrows();
+    el.addEventListener("scroll", onScroll);
+    window.addEventListener("resize", onResize);
+    return () => {
+      el.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onResize);
+    };
+  }, []);
+
+  // بما إن المحتوى LTR بالترتيب، السهم اللي يودّي "يمين" (للأمام
+  // بترتيب الشعارات) يسحب السكرول بمقدار موجب، والعكس بالعكس.
+  const scrollByAmount = (amount) => {
+    trackRef.current?.scrollBy({ left: amount, behavior: "smooth" });
+  };
 
   return (
     <section dir="rtl" className="bg-white py-16 px-6">
@@ -23,64 +57,53 @@ export default function ClientsSection() {
           شركات تثق بنا
         </h2>
 
-        <div
-          className="overflow-hidden"
-          style={{
-            maskImage:
-              "linear-gradient(to right, transparent, #000 10%, #000 90%, transparent)",
-            WebkitMaskImage:
-              "linear-gradient(to right, transparent, #000 10%, #000 90%, transparent)",
-          }}
-        >
-          <div dir="ltr" className="clients-track flex w-max items-center gap-8">
-            {track.map((client, i) => (
+        <div className="relative flex items-center gap-3">
+          {/* السهم الأيمن (بصريًا) = يرجّع للخلف بترتيب الشعارات */}
+          <button
+            type="button"
+            onClick={() => scrollByAmount(-300)}
+            disabled={!canScrollLeft}
+            aria-label="السابق"
+            className="hidden h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border border-gray-200 bg-white shadow-sm transition disabled:cursor-not-allowed disabled:opacity-30 sm:flex"
+          >
+            <span className="text-lg" style={{ transform: "scaleX(-1)" }}>
+              ›
+            </span>
+          </button>
+
+          <div
+            ref={trackRef}
+            dir="ltr"
+            className="flex flex-1 items-center gap-8 overflow-x-auto scroll-smooth px-1 py-2 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+          >
+            {clients.map((client, i) => (
               <div
                 key={i}
-                aria-hidden={i >= clients.length || undefined}
-                className="flex h-20 w-32 flex-shrink-0 items-center justify-center rounded-2xl border border-gray-100 bg-white px-5 shadow-[0_2px_10px_rgba(0,0,0,0.06)]"
+                className="flex h-24 w-40 flex-shrink-0 items-center justify-center rounded-2xl border border-gray-100 bg-white px-6 shadow-[0_2px_10px_rgba(0,0,0,0.06)]"
               >
                 <Image
                   src={client.src}
                   alt={client.alt}
-                  width={100}
-                  height={40}
-                  className="h-auto max-h-9 w-auto max-w-full object-contain"
+                  width={130}
+                  height={52}
+                  className="h-auto max-h-12 w-auto max-w-full object-contain"
                 />
               </div>
             ))}
           </div>
+
+          {/* السهم الأيسر (بصريًا) = يقدّم بترتيب الشعارات */}
+          <button
+            type="button"
+            onClick={() => scrollByAmount(300)}
+            disabled={!canScrollRight}
+            aria-label="التالي"
+            className="hidden h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border border-gray-200 bg-white shadow-sm transition disabled:cursor-not-allowed disabled:opacity-30 sm:flex"
+          >
+            <span className="text-lg">›</span>
+          </button>
         </div>
       </div>
-
-      {/*
-        الحركة مكتوبة هنا مباشرة بنفس الملف (بدون "use client")
-        عشان يضل المكوّن Server Component.
-        القائمة مكررة مرتين بالضبط، فالانتقال -50% يكوّن دورة كاملة
-        سلسة بدون أي فجوة أو التصاق عند نقطة الالتفاف.
-      */}
-      <style
-        dangerouslySetInnerHTML={{
-          __html: `
-            .clients-track {
-              animation: clients-scroll 24s linear infinite;
-              will-change: transform;
-            }
-            @keyframes clients-scroll {
-              from {
-                transform: translateX(0);
-              }
-              to {
-                transform: translateX(-50%);
-              }
-            }
-            @media (prefers-reduced-motion: reduce) {
-              .clients-track {
-                animation: none;
-              }
-            }
-          `,
-        }}
-      />
     </section>
   );
 }
