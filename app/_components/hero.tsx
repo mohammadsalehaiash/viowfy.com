@@ -34,7 +34,7 @@ export default function Hero() {
              من نحن
             </a>
             <a href="https://api.whatsapp.com/send/?phone=966545692545" className="rounded-xl bg-white px-6 py-3.5 font-semibold text-navy ring-1 ring-line transition hover:ring-brand">
-              تعرّف على آلية العمل
+             احجز استشارتك مجانا
             </a>
           </div>
 

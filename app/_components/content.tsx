@@ -12,8 +12,8 @@ export const NAV = [
 
 export const STATS = [
   { value: "92٪", label: "نسبة القبول من أول طلب" },
-  { value: "240+", label: "نشاطًا تجاريًا وثّقناه" },
-  { value: "3-10 أيام", label: "متوسط مدة إنجاز التحقق" },
+  { value: "30+", label: "نشاطًا تجاريًا وثّقناه" },
+  { value: "14-7 أيام", label: "متوسط مدة إنجاز التحقق" },
 ];
 
 export type Service = { slug: string; title: string; text: string; points: string[] };

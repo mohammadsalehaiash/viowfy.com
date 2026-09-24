@@ -1,7 +1,13 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
-import { NAV } from "@/app/_components/content";
+
+const NAV_ITEMS = [
+  { href: "#top", label: "الرئيسية" },
+  { href: "#services", label: "الخدمات" },
+  { href: "#about", label: "من نحن" },
+  { href: "#contact", label: "اتصل بنا" },
+];
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -15,7 +21,7 @@ export default function Header() {
         </a>
 
         <nav className="hidden items-center gap-8 md:flex" aria-label="التنقل الرئيسي">
-          {NAV.map((n) => (
+          {NAV_ITEMS.map((n) => (
             <a key={n.href} href={n.href} className="text-sm font-medium text-navy/75 transition hover:text-brand">
               {n.label}
             </a>
@@ -40,7 +46,7 @@ export default function Header() {
 
       {open && (
         <nav className="border-t border-line bg-white px-5 py-3 md:hidden">
-          {NAV.map((n) => (
+          {NAV_ITEMS.map((n) => (
             <a key={n.href} href={n.href} onClick={() => setOpen(false)} className="block py-3 text-navy">
               {n.label}
             </a>
