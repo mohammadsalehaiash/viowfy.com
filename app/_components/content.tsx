@@ -108,7 +108,6 @@ export const CONTACT_OPTIONS = [
   "إنشاء تطبيق Facebook Developers",
   "Facebook Login / OAuth",
   "واتساب بيزنس API",
-  "شات بوت ماسنجر أو واتساب",
   "Meta Pixel و Conversion API",
   "غير ذلك",
 ];
