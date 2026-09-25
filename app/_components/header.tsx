@@ -29,7 +29,7 @@ export default function Header() {
           ))}
         </nav>
 
-        <a href="#contact" className="hidden rounded-lg bg-navy px-4 py-2 text-sm font-semibold text-white transition hover:bg-brand md:inline-block">
+        <a href="/contact" className="hidden rounded-lg bg-navy px-4 py-2 text-sm font-semibold text-white transition hover:bg-brand md:inline-block">
           ابدأ التوثيق
         </a>
 
