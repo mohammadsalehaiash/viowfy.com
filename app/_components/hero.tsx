@@ -33,7 +33,7 @@ export default function Hero() {
             <a href="/about" className="rounded-xl bg-brand px-6 py-3.5 font-semibold text-white shadow-lg shadow-brand/25 transition hover:bg-navy">
              من نحن
             </a>
-            <a href="https://api.whatsapp.com/send/?phone=966545692545" className="rounded-xl bg-white px-6 py-3.5 font-semibold text-navy ring-1 ring-line transition hover:ring-brand">
+            <a href="/contact" className="rounded-xl bg-white px-6 py-3.5 font-semibold text-navy ring-1 ring-line transition hover:ring-brand">
              احجز استشارتك مجانا
             </a>
           </div>
