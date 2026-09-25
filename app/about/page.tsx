@@ -9,8 +9,8 @@ import Footer from "@/app/_components/footer";
 
 const FACTS = [
   { value: "B2B", label: "أنشطة تجارية فقط" },
-  { value: "ميتا", label: "تخصص واحد لا غير" },
-  { value: "٤٨س", label: "متوسط أول رد" },
+  { value: "Meta", label: "تخصص واحد لا غير" },
+  { value: "24س", label: "متوسط أول رد" },
 ];
 
 const SPECIALTIES = [

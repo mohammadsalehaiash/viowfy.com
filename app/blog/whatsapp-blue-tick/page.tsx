@@ -1,16 +1,14 @@
-// app/blog/[slug]/page.tsx
+// app/blog/whatsapp-blue-tick/page.tsx
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Header from "@/app/_components/header";
 import Footer from "@/app/_components/footer";
-import { POSTS, getPostBySlug } from "@/app/_components/post";
+import { getPostBySlug } from "@/app/_components/post";
 
-export function generateStaticParams() {
-  return POSTS.map((post) => ({ slug: post.slug }));
-}
+const SLUG = "whatsapp-blue-tick";
 
-export function generateMetadata({ params }: { params: { slug: string } }) {
-  const post = getPostBySlug(params.slug);
+export function generateMetadata() {
+  const post = getPostBySlug(SLUG);
   if (!post) return {};
   return {
     title: post.title,
@@ -18,12 +16,8 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
   };
 }
 
-export default function BlogPostPage({
-  params,
-}: {
-  params: { slug: string };
-}) {
-  const post = getPostBySlug(params.slug);
+export default function WhatsappBlueTickPostPage() {
+  const post = getPostBySlug(SLUG);
   if (!post) notFound();
 
   return (
