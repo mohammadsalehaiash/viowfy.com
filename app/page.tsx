@@ -1,4 +1,4 @@
-import Header from "@/app/_components/headre";
+import Header from "@/app/_components/header";
 import Hero from "@/app/_components/hero";
 import Services from "@/app/_components/servieces";
 import Process from "@/app/_components/process";

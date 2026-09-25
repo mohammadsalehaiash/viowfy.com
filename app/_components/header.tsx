@@ -3,10 +3,11 @@ import { useState } from "react";
 import Image from "next/image";
 
 const NAV_ITEMS = [
-  { href: "#top", label: "الرئيسية" },
+  { href: "./", label: "الرئيسية" },
   { href: "#services", label: "الخدمات" },
   { href: "about", label: "من نحن" },
-  { href: "#contact", label: "اتصل بنا" },
+  { href: "/blog", label: "المدونة" },
+  { href: "/contact", label: "اتصل بنا" },
 ];
 
 export default function Header() {
