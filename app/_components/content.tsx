@@ -1,6 +1,6 @@
 export const BRAND = "فيوفاي";
 export const WHATSAPP = "966545692545";
-export const EMAIL = "hello@mowthooq.example";
+export const EMAIL = "info@viowfy.com";
 export const SITE_URL = "https://api.whatsapp.com/send/?phone=966545692545";
 
 export const NAV = [

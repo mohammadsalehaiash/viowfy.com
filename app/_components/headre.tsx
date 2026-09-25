@@ -5,7 +5,7 @@ import Image from "next/image";
 const NAV_ITEMS = [
   { href: "#top", label: "الرئيسية" },
   { href: "#services", label: "الخدمات" },
-  { href: "#about", label: "من نحن" },
+  { href: "about", label: "من نحن" },
   { href: "#contact", label: "اتصل بنا" },
 ];
 

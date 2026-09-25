@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 
 const clients = [
   { src: "/azzad.png", alt: "عزّاد" },
-  { src: "/تحفةlogo.png", alt: "تحفة" },
+  { src: "/تحفةlogo.png", alt: "تحفة", label: "تحفة بصرية" },
   { src: "/سحابة.png", alt: "سحابة" },
   { src: "/سيبر.png", alt: "سيبر" },
   { src: "/وصل.png", alt: "وصل" },
@@ -79,7 +79,7 @@ export default function ClientsSection() {
             {clients.map((client, i) => (
               <div
                 key={i}
-                className="flex h-24 w-40 flex-shrink-0 items-center justify-center rounded-2xl border border-gray-100 bg-white px-6 shadow-[0_2px_10px_rgba(0,0,0,0.06)]"
+                className="flex h-24 w-40 flex-shrink-0 items-center justify-center gap-2 rounded-2xl border border-gray-100 bg-white px-4 shadow-[0_2px_10px_rgba(0,0,0,0.06)]"
               >
                 <Image
                   src={client.src}
@@ -88,6 +88,15 @@ export default function ClientsSection() {
                   height={52}
                   className="h-auto max-h-12 w-auto max-w-full object-contain"
                 />
+                {client.label && (
+                  <span
+                    dir="rtl"
+                    className="whitespace-nowrap text-sm font-semibold"
+                    style={{ color: "#FF6900" }}
+                  >
+                    {client.label}
+                  </span>
+                )}
               </div>
             ))}
           </div>
