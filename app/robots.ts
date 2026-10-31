@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: '/private/', // أي مسار لا تريد أرشفته (اختياري)
+      disallow: '/private/', 
     },
     sitemap: 'https://www.viowfy.com/sitemap.xml',
   };

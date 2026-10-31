@@ -13,6 +13,17 @@ export type Post = {
 
 export const POSTS: Post[] = [
   {
+    slug: "invite-people-meta-business",
+    title: "كيف ترسل دعوة لشخص إلى محفظة الأعمال في ميتا خطوة بخطوة",
+    excerpt:
+      "دليل مصوّر لإضافة شخص (موظف أو شريك أو مزوّد خدمة) إلى محفظة الأعمال، وإعطائه صلاحيات على الأصول مثل حساب واتساب بيزنس.",
+    date: "٣١ أكتوبر ٢٠٢٦",
+    readTime: "٤ دقائق قراءة",
+    // المحتوى الفعلي داخل الصفحة المستقلة:
+    // app/blog/invite-people-meta-business/page.tsx
+    content: [],
+  },
+  {
     slug: "whatsapp-blue-tick",
     title: "طريقة الحصول على العلامة الزرقاء في الواتساب",
     excerpt:
