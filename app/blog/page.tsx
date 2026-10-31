@@ -46,8 +46,8 @@ export default function BlogPage() {
                 <div className="mb-5 overflow-hidden rounded-xl border border-[#dbe5f5] shadow-[0_20px_40px_-25px_rgba(10,31,92,0.35)]">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src="/blog-header-image.svg"
-                    alt="فيوفاي - توثيق ميتا وربط واتساب بيزنس API"
+                    src={post.image ?? "/blog-header-image.svg"}
+                    alt={post.title}
                     className="h-auto w-full"
                   />
                 </div>

@@ -9,6 +9,7 @@ export type Post = {
   date: string; // بصيغة تعرضينها كما هي، مثال: "١٥ يناير ٢٠٢٥"
   readTime: string; // مثال: "٥ دقائق قراءة"
   content: string[]; // كل عنصر = فقرة مستقلة
+  image?: string; // صورة البطاقة في قائمة المدونة (اختياري)
 };
 
 export const POSTS: Post[] = [
@@ -19,6 +20,7 @@ export const POSTS: Post[] = [
       "دليل مصوّر لإضافة شخص (موظف أو شريك أو مزوّد خدمة) إلى محفظة الأعمال، وإعطائه صلاحيات على الأصول مثل حساب واتساب بيزنس.",
     date: "٣١ أكتوبر ٢٠٢٦",
     readTime: "٤ دقائق قراءة",
+    image: "/invite-cover.svg",
     // المحتوى الفعلي داخل الصفحة المستقلة:
     // app/blog/invite-people-meta-business/page.tsx
     content: [],
